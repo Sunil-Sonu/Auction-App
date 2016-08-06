@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1" align="center">
+        <tr>
+            <th> Product Name</th>
+            <th> Product Description</th>
+            <th> Product Post Date</th>
+            <th> Product Price</th>
+            <th>Product Bid Price</th>
+            <th> Category</th>
+        </tr>
+        {%  for content in data %}
+        <tr>
+         <td>{{ content.pname }}</td>
+            <td>{{ content.description}}</td>
+            <td>{{ content.postdate }}</td>
+            <td>{{ content.price}}</td>
+            <td>{{ content.bidprice }}</td>
+            <td>{{ content.list__name }}</td>
+    </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

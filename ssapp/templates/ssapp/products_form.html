@@ -1,0 +1,62 @@
+{% extends "ssapp/base.html" %}
+
+{% block content %}
+<script>
+$(document).ready(function() {
+    var dateToday = new Date();
+    $( "#id_finaldate" ).datepicker({
+        numberOfMonths: 1,
+        showButtonPanel: true,
+        minDate: dateToday
+    });
+});
+</script>
+<form enctype="multipart/form-data" action="" method="post" class="form-horizontal">
+    {% csrf_token %}
+
+    <div class="animated lightSpeedIn delay-30s">
+    <h2>Create A Product</h2>
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="pname">Name: </label>
+            <div class="col-xs-9">
+            {{ form.pname }}
+            </div>
+        </div>
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="desciption">Description: </label>
+            <div class="col-xs-9">
+            {{ form.description }}
+            </div>
+        </div>
+
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="inputEmail">Product Image: </label>
+            <div class="col-xs-9">
+            {{ form.pimage }}
+            </div>
+        </div>
+
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="inputEmail">Auction End: </label>
+            <div class="col-xs-9">
+            {{ form.finaldate }}
+            </div>
+        </div>
+
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="inputEmail">Category</label>
+            <div class="col-xs-9">
+            {{ form.list }}   <a href="/homepage/createcategory">Click Here If Category doesn't exist</a>
+            </div>
+        </div>
+
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="inputEmail">Price: </label>
+            <div class="col-xs-9">
+            {{ form.price }}
+            </div>
+        </div>
+    <input type="submit" style="margin-left: 400px;" class="btn btn-primary" id="#position" value="Create"/>
+    </div>
+</form>
+{% endblock content %}

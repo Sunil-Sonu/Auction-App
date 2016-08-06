@@ -1,0 +1,40 @@
+{% extends 'ssapp/base.html' %}
+{% block content %}
+    <form>
+    {% for content in data %}
+        <div class="animated bounceInUp delay-30s">
+<div class="content">
+    <div class="feed-item card">
+      <div class="feed-header clearfix">
+        <span class="user-image left">
+          <img src={{ content.current.userimage.url }} width="50px" />
+        </span>
+        <span class="user-name"><a href="" data-entity="person">{{content.current.user.first_name}}</a>
+        </span>
+      </div>
+      <div class="feed-image">
+        <img src={{ content.pimage.url }}  />
+      </div>
+      <div class="feed-content">
+          <label class="label label-info" >Product Name :</label><span class="event-title">{{ content.pname }}</span>
+    <label class="label label-info">Price: </label>      <span class="event-title">{{ content.price }}</span>
+    <label class="label label-info">Highest Bid :</label>    <span class="event-venue">{{ content.bidprice }}</span>
+        <span class="event-buy"><a href="/homepage/categories/products/biddetails/{{ content.id }}" class="button blue right">View Details</a>
+            </span>
+      </div>
+    </div>
+</div>
+        </div>
+        </a>
+         <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                  <p class="navbar-text pull-left">© 2016 - Website Designed by
+                       <a href="https://www.facebook.com/Ichigo.kurosaki079/" target="_blank" >Sunil Kumar</a>
+                  </p>
+            </div>
+        </div>
+
+               {% endfor %}
+
+    </form>
+{% endblock  %}

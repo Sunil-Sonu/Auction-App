@@ -1,0 +1,27 @@
+{% load admin_static %}{% load firstof from future %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "/" %}{% endfilter %}";</script>
+    <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}
+        <meta name="robots" content="NONE,NOARCHIVE"/>{% endblock %}
+
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+<div  align="center">
+    <div id="content" class="{% block coltype %}colM{% endblock %}">
+        {% block content %}
+            {% block object-tools %}{% endblock %}
+            {{ content }}
+        {% endblock %}
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'ssapp/base.html' %}
+{% block content %}
+
+<form enctype="multipart/form-data" action="" method="post" class="form-horizontal">
+    {% csrf_token %}
+    <div class="bounceInRight delay-30s">
+        <h2>ENTER YOUR BID:</h2>
+        <div class="form-group" align="center">
+        </div>
+        <div align="center" class="form-group">
+            <label>Your Price: </label>
+                {{ form.userbid }} <br><br>
+                <input type="submit" style="margin-left: 0px;" class="btn btn-primary" id="#position" value="Create"/>
+</div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'ssapp/base.html' %}
+{% block content %}
+    <div class="animated bounceIn delay-40s">
+        <table class="table table-condensed table-hover">
+        	<thead>
+        		<tr>
+        			<th>List Of Categories</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+              {% for content in object_list %}
+    		<tr>
+                <td><a href="/homepage/categories/products/{{ content.id }}">{{ content.name }}</a></td>
+    		</tr>
+        {% endfor %}
+        	</tbody>
+
+        </table>
+    </div>
+{% endblock %}

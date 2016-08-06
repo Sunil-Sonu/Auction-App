@@ -1,0 +1,38 @@
+{% extends 'ssapp/base.html' %}
+{% block content %}
+    <form>
+    {% if data %}
+
+    {% for content in data %}
+     <div class="animated wobble delay-30s">
+        <div class="content">
+    <div class="feed-item card">
+      <div class="feed-header clearfix">
+        <span class="user-image left">
+          <img src={{ content.bid.current.userimage.url }} width="50px" />
+        </span>
+        <span class="user-name"><a href="" data-entity="person">{{content.bid.current.user.first_name}}</a>
+        </span>
+      </div>
+      <div class="feed-image">
+        <img src={{ content.bid.pimage.url }}  />
+      </div>
+      <div class="feed-content">
+          <label class="label label-info" >Product Name:</label><span class="event-title">{{ content.bid.pname }}</span>
+    <label class="label label-info">Price: </label>      <span class="event-title">{{ content.bid.price }}</span>
+    <label class="label label-info">My Bid:</label>    <span class="event-venue">{{ content.userbid }}</span>
+    </div>
+</div>
+        </div>
+        </a>
+        </div>
+               {% endfor %}
+    {% else %}
+        <div class="fadeIn">
+<div class="alert alert-info fade in">
+    <div class="well" align="center">
+    <strong>PRODUCTS</strong> not available Yet.
+  </div></div>
+    {% endif %}
+</form>
+{% endblock  %}

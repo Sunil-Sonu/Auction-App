@@ -1,0 +1,41 @@
+{% extends 'ssapp/base.html' %}
+{% block content %}
+{% if data %}
+    <h3 align="center">PURCHASED PRODUCTS</h3>
+    {% for content in data %}
+<div class="animated fadeInRight delay-20s">
+<div class="content">
+    <div class="feed-item card">
+      <div class="feed-header clearfix">
+        <span class="user-image left">
+
+          <img src={{ content.bid.current.userimage.url }} width="50px" />
+        </span>
+        <span class="user-name"><a href="" data-entity="person">{{content.bid.current.user.first_name}} {{content.bid.current.user.last_name}} (OWNER OF THE PRODUCT)</a>
+        </span>
+      </div>
+      <div class="feed-content">
+          <label class="label label-info" >Product Name :</label><span class="event-title">{{ content.bid.pname }} </span>
+          <label class="label label-info">Product Image: </label><span class="event-title"><div class="feed-image"><img src= {{ content.bid.pimage.url }}/>
+     </div> </span>
+          <label class="label label-info">Initial Price :</label><span class="event-venue">{{ content.bid.price }}</span>
+          <label class="label label-info" >Your Price :</label><span class="event-title">{{ content.bid.bidprice }}</span>
+          <label class="label label-info">Posted On: </label><span class="event-title">{{ content.bid.postdate }}</span>
+          <label class="label label-info">Auction End Date: </label><span class="event-venue">{{ content.bid.finaldate }}</span>
+         <h3>OWNER DETAILS:</h3><hr style="border: none;height: 1px;background-color: #333;">
+          <label class="label label-info" >Email: </label><span class="event-title">{{ content.bid.current.user.email }}</span>
+          <label class="label label-info">Phone: </label><span class="event-title">{{ content.bid.current.contact}}</span>
+          <label class="label label-info">Address :</label><span class="event-venue">{{ content.bid.current.address }}</span>
+
+      </div></div>
+         </div></div>
+    	{% endfor %}
+{% else %}
+    <div class="animated bounceInLeft">
+    <div class="alert alert-info fade in">
+    <div class="well" align="center">
+    <strong>NO PRODUCTS</strong> purchased Yet.
+  </div></div>
+    </div>
+{% endif %}
+{% endblock %}

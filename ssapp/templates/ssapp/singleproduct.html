@@ -1,0 +1,43 @@
+{% extends 'ssapp/base.html' %}
+{% block content %}
+{% for content in data %}
+    <div class="animated rollIn delay-20s">
+    <div class="content">
+    <div class="feed-item card">
+      <div class="feed-header clearfix">
+        <span class="user-image left">
+          <img src={{ content.current.userimage.url }} width="50px" />
+        </span>
+    </span>
+        <span class="user-name"><a href="" data-entity="person">{{content.current.user.first_name}} {{content.current.user.last_name}} <strong>(OWNER'S NAME)</strong></a>
+        </span>
+      </div>
+      <div class="feed-image">
+          <label class="label label-info" >Product Image:</label>
+        <img src={{ content.pimage.url }}/>
+      </div>
+
+      <div class="feed-content">
+          <label class="label label-info" >Product Name:</label><span class="event-title">{{ content.pname }}</span>
+          <label class="label label-info" >Category: </label><span class="event-title">{{ content.list.name }}</span>
+          <label class="label label-info">Desciption: </label>      <span class="event-title">{{ content.description }}</span>
+          <label class="label label-info" >Posted On: </label><span class="event-title">{{ content.postdate }}</span>
+          <label class="label label-info">Auction End: </label>      <span class="event-title">{{ content.finaldate }}</span>
+          <label class="label label-info">Price: </label>    <span class="event-venue">{{ content.price }}</span>
+          <label class="label label-info">Highest Bid: </label>    <span class="event-venue">{{ content.bidprice }}</span>
+             <h3>OWNER DETAILS:</h3><hr style="border: none;height: 1px;background-color: #333;">
+          <label class="label label-info" >Email: </label><span class="event-title">{{ content.current.user.email }}</span>
+          <label class="label label-info">Phone: </label><span class="event-title">{{ content.current.contact}}</span>
+          <label class="label label-info">Address :</label><span class="event-venue">{{ content.current.address }}</span>
+
+
+          <span class="event-buy">
+              <a href="/homepage/categories/products/bid/{{ content.id }}" class="button blue right">BID YOUR PRICE</a>
+          </span>
+
+      </div>
+    </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
